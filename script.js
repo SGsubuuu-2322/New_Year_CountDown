@@ -4,6 +4,7 @@ const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 const yearEl = document.getElementById("year");
+const loadingEl = document.getElementById("loader");
 
 const currentYear = new Date().getFullYear();
 
@@ -26,5 +27,10 @@ function updateCountDown() {
   minutesEl.innerText = m < 10 ? "0" + m : m;
   secondsEl.innerText = s < 10 ? "0" + s : s;
 }
+
+setTimeout(() => {
+  loadingEl.remove();
+  countDown.style.display = "flex";
+}, 1000);
 
 setInterval(updateCountDown, 1000);
